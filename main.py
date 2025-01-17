@@ -1,13 +1,14 @@
-from flask import Flask
 import limiter
+
+from flask import Flask
 
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route('/')
 @limiter.limit_in_a_minute(5)
 def hello():
-    return "Hello, World!"
+    return 'Hello, World!'
 
 
-app.run(host="0.0.0.0", port=8080, debug=True)
+app.run(host='0.0.0.0', port=8080, debug=True)
